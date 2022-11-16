@@ -24,6 +24,9 @@ jobs:
       - run: |
           git fetch --all
           git fetch origin main
+          git remote set-branches origin '*'
+          git fetch
+
         
 
       # Runs a set of commands using the runners shell
