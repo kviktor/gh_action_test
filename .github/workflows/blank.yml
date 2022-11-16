@@ -21,11 +21,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0          
-      - run: |
-          git fetch --all
-          git fetch origin main
-          git remote set-branches origin '*'
-          git fetch
 
         
 
@@ -33,6 +28,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           git branch --list
-          git log --no-merges --oneline qa ^main
-          OUTPUT=$(git log --no-merges --oneline qa ^main)
+          git log --no-merges --oneline origin/main ^origin/qa
+          OUTPUT=$(git log --no-merges --oneline main ^qa)
           echo $OUTPUT
